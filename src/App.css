@@ -1,0 +1,104 @@
+:root{
+    --mainBlue:#2a2a72;
+    --lightBlue:#009ffd;
+    --mainWhite:#f3f3f3;
+    --mainDark:#232528;
+    --mainYellow:#ffa400;
+    --mainAqua:#00CED1;
+ }
+ 
+ 
+ body{
+   
+   background: var(--mainWhite) !important;
+   color:var(--mainDark) !important;
+ }
+ 
+ .text-title{
+ font-family: 'Oswald', sans-serif !important;
+ text-transform: uppercase;
+ font-size: 2rem;
+ color: var(--mainAqua) !important;
+ margin-left: 200px;
+ 
+ 
+ }
+ .navbar {
+   min-height: 200px;
+   width: 100%;
+   position: absolute;
+   
+   background-color : black;
+   
+   justify-content: center;
+ }
+ .search-control{
+   width: 60%;
+   height: 40px;
+   
+ }
+ .logo {
+   font-size: 6rem;
+   color: var(--mainAqua) !important;
+   
+ }
+ tr:hover {background-color: white;}
+ 
+ .white-box {
+   background-color: white;
+   color: black;
+   width:70%;
+   margin-top: 20px;
+   height: 350px;
+   margin-left: 226px;
+   border: black;
+ }
+ 
+ .fa-text{
+   font-size: 36px;
+   margin-left: 25px;
+ }
+ .note-text{
+   font-size: 26px;
+   margin-left: 5px;
+ }
+ .btn-1{
+   background-color: green;
+   border-radius: 2px;
+   text-transform : capitalize;
+   font-size:1.2rem;
+   border: 0.05rem solid green !important;
+   border-radius: 0.2rem;
+   padding : 0.1rem 2rem;
+   cursor: pointer;
+   margin: 0.2rem 0.5rem 0.2rem 0;
+   color: aliceblue;
+   margin-bottom: 0px;
+   position: absolute;
+   right: 0;
+   margin-right: 400px;
+  
+ }
+ .btn-2{
+   background-color: red;
+   border-radius: 2px;
+   text-transform : capitalize;
+   font-size:1.2rem;
+   border: 0.05rem solid red !important;
+   border-radius: 0.2rem;
+   padding : 0.1rem 2rem;
+   cursor: pointer;
+   margin: 0.2rem 0.5rem 0.2rem 0;
+   color: aliceblue;
+   margin-bottom: 0px;
+   position: absolute;
+   right: 0;
+   margin-right: 220px;
+  
+ }
+ 
+ 
+ 
+ 
+ 
+ 
