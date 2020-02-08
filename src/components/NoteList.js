@@ -1,11 +1,24 @@
-import React from 'react'
+import React , { Component } from 'react'
+import { NoteConsumer } from '../context'
+import Note from './Note'
+import { storeNotes } from '../data'
 
-export default function NoteList() {
+export default class NoteList extends Component {
+  state = {
+    notes : storeNotes 
+  }
+   render() { 
+     console.log(this.state.products)
     return (
-        <ul className="list-group my-5">
-            <h3 className="text-capitalize text-center">
-                hi
-            </h3>
-        </ul>
+        <React.Fragment>
+              <NoteConsumer>
+                {(value) => {
+                  return value.notes.map( note => {
+                    return < Note key = {note.id} note={note} />
+                  })
+                }}
+              </NoteConsumer>
+        </React.Fragment>
     )
+            } 
 }

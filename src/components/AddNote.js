@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { detailNotes } from '../data'
+import { NoteConsumer } from '../context'
 
 
 export default class AddNote extends Component { 
-       
+    
     render() {
-        const { item , handleChange , handleSubmit} = this.props
+        const { handleChange , handleSubmit , title , info } = this.props
          return (
+            
             <div className="white-box">
                <form onSubmit={handleSubmit}>
                   <div className="form-group py-4 px-4">
@@ -21,7 +24,7 @@ export default class AddNote extends Component {
                        <input type ="text"
                        className="form-control text-capitalize"
                        placeholder="add a note item"
-                       value={item}
+                       value={title}
                        onChange={handleChange}
                       />
                     </div>
@@ -30,6 +33,8 @@ export default class AddNote extends Component {
                         <input type="text"
                         className="form-control text-capitalize"
                         placeholder="add the content"
+                        value={info}
+                       onChange={handleChange}
                        />
                     </div>
                     <div className="form-group px-4">
@@ -63,7 +68,7 @@ export default class AddNote extends Component {
                     </Link>
             </div>
             
-                
+               
         )
     }
 }
