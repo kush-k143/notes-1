@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { detailNotes , storeNotes } from './data'
+import uuid from 'uuid'
 
 
 
@@ -15,19 +16,25 @@ class NoteProvider extends Component {
 
     }
 
-    handleChange(event) {
-        const note = event.target.name;
-        const value = event.target.value;
-    
-        this.setState({
-          [note]: value
-        })
+    handleChange = ( ) => {
+       console.log("hi from handleChange")
       }
     
-      handleSubmit(event) {
-        event.preventDefault();
-        this.props.onFormSubmit(this.state);
-        this.setState(this.initialState);
+      handleSubmit = (e) =>  {
+        e.preventDefault()
+
+          const newNote = {
+            id : this.state.id,
+            note : this.state.item
+          }
+       console.log(newNote)
+    const updatedNotes = [...this.state.notes , newNote]
+          this.setState({
+              notes : updatedNotes , 
+              note : '',
+              id : uuid(),
+              editItem : false
+          })    
       }
   
     render() {
