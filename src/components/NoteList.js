@@ -4,17 +4,21 @@ import Note from './Note'
 import { storeNotes } from '../data'
 
 export default class NoteList extends Component {
-  state = {
-    notes : storeNotes 
+  constructor(props) {
+    super(props);
+    this.state = {
+     
+      notes: []
+    }
   }
    render() { 
-     console.log(this.state.products)
+     
     return (
         <React.Fragment>
               <NoteConsumer>
                 {(value) => {
                   return value.notes.map( note => {
-                    return < Note key = {note.id} note={note} />
+                    return < Note key = {note.id} note = {note} />
                   })
                 }}
               </NoteConsumer>

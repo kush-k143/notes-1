@@ -16,26 +16,39 @@ class NoteProvider extends Component {
 
     }
 
-    handleChange = ( ) => {
-       console.log("hi from handleChange")
+    constructor(props) {
+      super(props);
+      this.initialState = {
+        id: '',
+        title: '',
+        info: '',
+        tag: ''
       }
-    
-      handleSubmit = (e) =>  {
-        e.preventDefault()
-
-          const newNote = {
-            id : this.state.id,
-            note : this.state.item
-          }
-       console.log(newNote)
-    const updatedNotes = [...this.state.notes , newNote]
-          this.setState({
-              notes : updatedNotes , 
-              note : '',
-              id : uuid(),
-              editItem : false
-          })    
+  
+      if(props.note){
+        this.state = props.note
+      } else {
+        this.state = this.initialState;
       }
+  
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+  
+    handleChange(event) {
+      const note = event.target.note;
+      const value = event.target.value;
+  
+      this.setState({
+        [note]: value
+      })
+    }
+  
+    handleSubmit(event) {
+      event.preventDefault();
+      this.props.onFormSubmit(this.state);
+      this.setState(this.initialState);
+    }
   
     render() {
         return (
