@@ -16,46 +16,37 @@ class NoteProvider extends Component {
 
     }
 
-    constructor(props) {
-      super(props);
-      this.initialState = {
-        id: '',
-        title: '',
-        info: '',
-        tag: ''
+    readNote = e => {
+      e.preventDefault();
+      console.log(e.target);
+      const title = e.currentTarget.firstElementChild.innerHTML;
+      const info = e.currentTarget.MiddleElementChild.innerHTML;
+      const tag = e.currentTarget.lastElementChild.innerHTML;
+      this.setState({ writingNote: false, currentRead: { title: title, info : info, tag : tag} }); 
+    }; 
+    
+      handleClick = (id) => {
+        const newTitle = document.getElementById("new-note-title").value;
+        const newContent = document.getElementById("new-note-content").value;
+        const newTag = document.getElementById("new-tag-content").value;
+        const newObject = { title: newTitle, note: newContent, tag : newTag};
+        console.log(newTitle)
+      
+        this.setState({
+          storedNotes: [...this.state.storedNotes, newObject]
+        });
+      };
+  
+      writeNote = () => {
+        this.setState({writingNote: true})
       }
-  
-      if(props.note){
-        this.state = props.note
-      } else {
-        this.state = this.initialState;
-      }
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      const note = event.target.note;
-      const value = event.target.value;
-  
-      this.setState({
-        [note]: value
-      })
-    }
-  
-    handleSubmit(event) {
-      event.preventDefault();
-      this.props.onFormSubmit(this.state);
-      this.setState(this.initialState);
-    }
-  
     render() {
         return (
             <NoteContext.Provider value={{
                ...this.state,
-               handleChange : this.handleChange,
-               handleSubmit : this.handleSubmit
+               handleClick : this.handleClick,
+               readnote : this.readNote,
+               writeNote : this.writeNote
             }}>
                 {this.props.children}
             </NoteContext.Provider>

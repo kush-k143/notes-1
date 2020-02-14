@@ -1,17 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { detailNotes } from '../data'
 import { NoteConsumer } from '../context'
 
 
-export default class AddNote extends Component { 
+export default function AddNote() { 
     
-    render() {
-        const { handleChange , handleSubmit , title , info } = this.props
+    const {readNote , handleClick } = this.props;
+        
          return (
-            
+             
+            <NoteConsumer>
+            { value => (
             <div className="white-box">
-               <form onSubmit={handleSubmit}>
+           
+               <form onSubmit={() => readNote()}>
                   <div className="form-group py-4 px-4">
                     <span className="fa-text">
                         <i  className="fa fa-file-text-o "/>
@@ -21,11 +24,11 @@ export default class AddNote extends Component {
                     </span>
                     <div className="px-4">
                        <label>Title</label>
-                       <input type ="text"
+                       <input id="new-note-title"
+                       type ="text"
                        className="form-control text-capitalize"
                        placeholder="add a note item"
-                       value={title}
-                       onChange={handleChange}
+                       onChange={() => handleClick()}
                       />
                     </div>
                     <div className="py-2 px-4">
@@ -33,21 +36,26 @@ export default class AddNote extends Component {
                         <input type="text"
                         className="form-control text-capitalize"
                         placeholder="add the content"
-                        value={info}
-                       onChange={handleChange}
+                       
+                       onChange={() => handleClick()}
                        />
                     </div>
                     <div className="form-group px-4">
                         <label>tags</label>
-                        <input type="text"
+                        <input id="new-tag-title"
+                        type="text"
                         className="form-control text-capitalize"
                         placeholder="add a tag"
+                        onChange={() => handleClick()}
                         />
                     </div>
                   </div>  
               </form>
                
-                <button className="btn-1">
+                <button id="button"
+                        className="btn-1" onClick={() => 
+                            readNote()
+                        }>
                     <span>
                         <i  className="fa fa-save"/>
                         <span className=" px-2">
@@ -66,12 +74,14 @@ export default class AddNote extends Component {
                     </span>
                     </button>
                     </Link>
+           
             </div>
-            
-               
+            )}
+            </NoteConsumer>
+           
         )
     }
-}
+
 
 
 

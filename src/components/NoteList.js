@@ -8,7 +8,7 @@ export default class NoteList extends Component {
     super(props);
     this.state = {
      
-      notes: []
+      note: []
     }
   }
    render() { 
