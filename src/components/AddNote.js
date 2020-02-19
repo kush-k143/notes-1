@@ -1,19 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { detailNotes } from '../data'
 import { NoteConsumer } from '../context'
 
 
-export default function AddNote() { 
+export default class AddNote extends Component { 
     
-    const {readNote , handleClick } = this.props;
-        
+    render() {
+        const { handleClick , addnote } = this.props
          return (
              
-           
+            
             <div className="white-box">
-           
-               <form onSubmit={() => readNote()}>
+               <form onSubmit={this.props.addnote}>
                   <div className="form-group py-4 px-4">
                     <span className="fa-text">
                         <i  className="fa fa-file-text-o "/>
@@ -27,7 +26,7 @@ export default function AddNote() {
                        type ="text"
                        className="form-control text-capitalize"
                        placeholder="add a note item"
-                       onChange={() => handleClick()}
+                       onChange={this.props.handleClick}
                       />
                     </div>
                     <div className="py-2 px-4">
@@ -36,7 +35,7 @@ export default function AddNote() {
                         className="form-control text-capitalize"
                         placeholder="add the content"
                        
-                       onChange={() => handleClick()}
+                       onChange={this.props.handleClick}
                        />
                     </div>
                     <div className="form-group px-4">
@@ -45,7 +44,7 @@ export default function AddNote() {
                         type="text"
                         className="form-control text-capitalize"
                         placeholder="add a tag"
-                        onChange={() => handleClick()}
+                        onChange={this.props.handleClick}
                         />
                     </div>
                   </div>  
@@ -53,7 +52,7 @@ export default function AddNote() {
                
                 <button id="button"
                         className="btn-1" onClick={() => 
-                            readNote()
+                            addnote()
                         }>
                     <span>
                         <i  className="fa fa-save"/>
@@ -73,13 +72,12 @@ export default function AddNote() {
                     </span>
                     </button>
                     </Link>
-           
             </div>
-          
-           
+            
+            
         )
     }
-
+}
 
 
 
