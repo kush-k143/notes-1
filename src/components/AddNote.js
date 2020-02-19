@@ -10,8 +10,7 @@ export default function AddNote() {
         
          return (
              
-            <NoteConsumer>
-            { value => (
+           
             <div className="white-box">
            
                <form onSubmit={() => readNote()}>
@@ -76,8 +75,7 @@ export default function AddNote() {
                     </Link>
            
             </div>
-            )}
-            </NoteConsumer>
+          
            
         )
     }
