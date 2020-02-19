@@ -26,7 +26,7 @@ export default class AddNote extends Component {
                        type ="text"
                        className="form-control text-capitalize"
                        placeholder="add a note item"
-                       onChange={this.props.handleClick}
+                       onChange={this.handleClick}
                       />
                     </div>
                     <div className="py-2 px-4">
@@ -35,7 +35,7 @@ export default class AddNote extends Component {
                         className="form-control text-capitalize"
                         placeholder="add the content"
                        
-                       onChange={this.props.handleClick}
+                       onChange={this.handleClick}
                        />
                     </div>
                     <div className="form-group px-4">
@@ -44,7 +44,7 @@ export default class AddNote extends Component {
                         type="text"
                         className="form-control text-capitalize"
                         placeholder="add a tag"
-                        onChange={this.props.handleClick}
+                        onChange={this.handleClick}
                         />
                     </div>
                   </div>  

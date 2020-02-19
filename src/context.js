@@ -25,16 +25,16 @@ class NoteProvider extends Component {
       this.setState({ writingNote: false, currentRead: { title: title, info : info, tag : tag} }); 
     }; 
     
-      handleClick = (id) => {
+      handleClick = () => {
         const newTitle = document.getElementById("new-note-title").value;
         const newContent = document.getElementById("new-note-content").value;
         const newTag = document.getElementById("new-tag-content").value;
-        const newObject = { title: newTitle, note: newContent, tag : newTag};
-        console.log(newTitle)
+        // const newObject = { title: newTitle, note: newContent, tag : newTag};
+        console.log(newTitle,newContent,newTag,"trial")
       
-        this.setState({
-          storedNotes: [...this.state.storedNotes, newObject]
-        });
+        // this.setState({
+        //   storedNotes: [...this.state.storedNotes, newObject]
+        // });
       };
   
       writeNote = () => {
