@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { detailNotes , storeNotes } from './data'
-import uuid from 'uuid'
 
 
 
@@ -18,35 +17,24 @@ class NoteProvider extends Component {
 
     readNote = e => {
       e.preventDefault();
-      console.log(e.target);
-      const title = e.currentTarget.firstElementChild.innerHTML;
-      const info = e.currentTarget.MiddleElementChild.innerHTML;
-      const tag = e.currentTarget.lastElementChild.innerHTML;
-      this.setState({ writingNote: false, currentRead: { title: title, info : info, tag : tag} }); 
-    }; 
+     }; 
     
-      handleClick = (id) => {
-        const newTitle = document.getElementById("new-note-title").value;
-        const newContent = document.getElementById("new-note-content").value;
-        const newTag = document.getElementById("new-tag-content").value;
-        const newObject = { title: newTitle, note: newContent, tag : newTag};
-        console.log(newTitle)
+    handleClick = () => {
+       
+        console.log("hello from context");
+        
       
-        this.setState({
-          storedNotes: [...this.state.storedNotes, newObject]
-        });
-      };
+     
+    };
   
-      writeNote = () => {
-        this.setState({writingNote: true})
-      }
+  
+
     render() {
         return (
             <NoteContext.Provider value={{
                ...this.state,
-               handleClick : this.handleClick,
-               readnote : this.readNote,
-               writeNote : this.writeNote
+             
+             
             }}>
                 {this.props.children}
             </NoteContext.Provider>
