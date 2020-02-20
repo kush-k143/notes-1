@@ -7,12 +7,13 @@ import { NoteConsumer } from '../context'
 export default class AddNote extends Component { 
     
     render() {
-        const { handleClick , addnote } = this.props
+        const { handleClick , readNote } = this.props
          return (
              
-            
-            <div className="white-box">
-               <form onSubmit={this.props.addnote}>
+            <NoteConsumer>
+                {value => (
+               <div className="white-box">
+               <form onSubmit={this.props.readNote}>
                   <div className="form-group py-4 px-4">
                     <span className="fa-text">
                         <i  className="fa fa-file-text-o "/>
@@ -52,7 +53,7 @@ export default class AddNote extends Component {
                
                 <button id="button"
                         className="btn-1" onClick={() => 
-                            addnote()
+                            readNote()
                         }>
                     <span>
                         <i  className="fa fa-save"/>
@@ -73,6 +74,8 @@ export default class AddNote extends Component {
                     </button>
                     </Link>
             </div>
+            )}
+            </NoteConsumer>
             
             
         )
