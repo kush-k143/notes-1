@@ -15,18 +15,40 @@ class NoteProvider extends Component {
 
     }
 
-    readNote = e => {
-      e.preventDefault();
-     }; 
-    
-    handleClick = () => {
-       
-        console.log("hello from context");
-        
-      
-     
-    };
   
+
+    changeHandler = event => {
+    
+        const title = event.target.title;
+        const value = event.target.value;
+  
+        const updatedControls = {
+          ...this.state.formControls
+        };
+        const updatedFormElement = {
+          ...updatedControls[title]
+        };
+        updatedFormElement.value = value;
+        updatedFormElement.touched = true;
+  
+        updatedControls[title] = updatedFormElement;
+  
+        this.setState({
+          formControls: updatedControls,
+         
+        });
+  
+    }
+    
+    
+    formSubmitHandler = () => {
+      const formData = {};
+      for (let formElementId in this.state.formControls) {
+          formData[formElementId] = this.state.formControls[formElementId].value;
+      }
+      
+          console.dir(formData);
+    }
   
 
     render() {
