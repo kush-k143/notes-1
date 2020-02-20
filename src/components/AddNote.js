@@ -17,7 +17,7 @@ export default class AddNote extends Component {
                     return(
                         <React.Fragment>
                             <div className="white-box">
-                                <form onSubmit={console.log("onsubmit")}>
+                                <form onSubmit={value.formSubmitHandler}>
                                     <div className="form-group py-4 px-4">
                                         <span className="fa-text">
                                             <i  className="fa fa-file-text-o "/>
@@ -31,7 +31,7 @@ export default class AddNote extends Component {
                                         type ="text"
                                         className="form-control text-capitalize"
                                         placeholder="add a note item"
-                                        onChange={value.handleClick}
+                                        onChange={value.changeHandler}
                                         />
                                         </div>
                                         <div className="py-2 px-4">
@@ -40,7 +40,7 @@ export default class AddNote extends Component {
                                             className="form-control text-capitalize"
                                             placeholder="add the content"
                                         
-                                        onChange={value.handleClick}
+                                        onChange={value.changeHandler}
                                         />
                                         </div>
                                         <div className="form-group px-4">
@@ -49,15 +49,16 @@ export default class AddNote extends Component {
                                             type="text"
                                             className="form-control text-capitalize"
                                             placeholder="add a tag"
-                                            onChange={value.handleClick}
+                                            onChange={value.changeHandler}
                                             />
                                         </div>
                                     </div>  
                                 </form>
                             
                                 <button id="button"
-                                        className="btn-1" onClick={ this.formSubmitHandler                                           
-                                        }>
+                                        className="btn-1"  onClick={  
+                                  value.formSubmitHandler
+                                  }>
                                     <span>
                                         <i  className="fa fa-save"/>
                                         <span className=" px-2">
