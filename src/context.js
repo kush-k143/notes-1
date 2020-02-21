@@ -9,6 +9,8 @@ const NoteContext = React.createContext();
 
 class NoteProvider extends Component {
     state = {
+        title:'',
+        content:'',
         notes : storeNotes,
         detailNotes : detailNotes,
         note : [],
@@ -16,8 +18,30 @@ class NoteProvider extends Component {
 
     }
 
-    readNote = e => {
+    handleSubmit = e => {
       e.preventDefault();
+      console.log(this.state,"submit state");
+      const obj = {
+          title:this.state.title,
+          info:this.state.content,
+          date: new Date(),
+          editItem: false
+
+      }
+
+      const Notes = this.state.notes;
+      Notes.push(obj);
+
+      this.setState(()=>{
+          return{
+              notes:Notes
+          }
+      },()=>{
+        // this.props.history.push('/');
+        console.log(this.state.notes,"notes submit");
+        
+      })
+      
       // console.log(e.target);
       // const title = e.currentTarget.firstElementChild.innerHTML;
       // const info = e.currentTarget.MiddleElementChild.innerHTML;
@@ -25,28 +49,21 @@ class NoteProvider extends Component {
       // this.setState({ writingNote: false, currentRead: { title: title, info : info, tag : tag} }); 
     }; 
     
-    handleTitle = () => {
-        // const newTitle = document.getElementById("new-note-title").value;
-        // const newContent = document.getElementById("new-note-content").value;
-        // const newTag = document.getElementById("new-tag-content").value;
-        // const newObject = { title: newTitle, note: newContent, tag : newTag};
-        // console.log(newTitle,newContent,newTag,"trial")
-        console.log("hello from title");
-        
-      
-        // this.setState({
-        //   storedNotes: [...this.state.storedNotes, newObject]
-        // });
+    handleTitle = (e) => {
+        // console.log(e.target.value, e.target.id, "title");
+        this.setState({title:e.target.value})
+        //func1
     };
 
-    handleContent = ()=>{
-        console.log("hello from content");
-        
+    handleContent = (e)=>{
+        // console.log("hello from content");
+        this.setState({content:e.target.value})
+        //func2
     }
 
     handleTags = ()=>{
         console.log("hello from Tags");
-        
+        //func3
     }
   
     writeNote = () => {
@@ -60,7 +77,7 @@ class NoteProvider extends Component {
                handleTitle : this.handleTitle,
                handleContent:this.handleContent,
                handleTags: this.handleTags,
-               readnote : this.readNote,
+               handleSubmit:this.handleSubmit,
                writeNote : this.writeNote
             }}>
                 {this.props.children}

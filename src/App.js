@@ -14,10 +14,11 @@ class App extends Component {
       return (
          <React.Fragment>
              <Navbar />
-                <Switch>
-                    <Route exact path = "/" component={SearchBar} />
-                    <Route path = "/addnote" component={AddNote}/>
+                <Switch>  
+                    <Route exact path = "/" component={SearchBar} />                  
+                    <Route path = "/addnote" component={AddNote} exact={true} />
                     <Route component={Default}/>
+                    
                 </Switch>
          </React.Fragment>
 
