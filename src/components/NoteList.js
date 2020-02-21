@@ -1,7 +1,7 @@
 import React , { Component } from 'react'
 import { NoteConsumer } from '../context'
 import Note from './Note'
-import { storeNotes } from '../data'
+
 
 export default class NoteList extends Component {
  

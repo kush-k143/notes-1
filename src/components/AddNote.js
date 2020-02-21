@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { detailNotes } from '../data'
+
 import { NoteConsumer } from '../context'
 
 
 export default class AddNote extends Component { 
     
     render() {
+
+      
         // const { handleClick , addnote } = this.props
          return (
              
@@ -15,7 +17,7 @@ export default class AddNote extends Component {
                     return(
                         <React.Fragment>
                             <div className="white-box">
-                                <form onSubmit={console.log("onsubmit")}>
+                                <form onSubmit={value.formSubmitHandler}>
                                     <div className="form-group py-4 px-4">
                                         <span className="fa-text">
                                             <i  className="fa fa-file-text-o "/>
@@ -69,6 +71,7 @@ export default class AddNote extends Component {
                         </React.Fragment>
                     )
                 }}
+
             </NoteConsumer>
             
             

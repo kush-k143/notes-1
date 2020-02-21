@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { detailNotes , storeNotes } from './data'
-import uuid from 'uuid'
 
 
 
@@ -18,6 +17,7 @@ class NoteProvider extends Component {
 
     }
 
+<<<<<<< HEAD
     handleSubmit = e => {
       e.preventDefault();
       console.log(this.state,"submit state");
@@ -64,21 +64,61 @@ class NoteProvider extends Component {
     handleTags = ()=>{
         console.log("hello from Tags");
         //func3
+=======
+  
+
+    formSubmitHandler  = () => {
+    
+        const formData = {};
+        for (let formElementId in this.state.formControls) {
+            formData[formElementId] = this.state.formControls[formElementId].value;
+        }
+        
+            console.dir(formData);
+  
+    }
+    
+    
+      changeHandler = event => {
+        const title = event.target.title;
+        const value = event.target.value;
+  
+        const updatedControls = {
+          ...this.state.formControls
+        };
+        const updatedFormElement = {
+          ...updatedControls[title]
+        };
+        updatedFormElement.value = value;
+        updatedFormElement.touched = true;
+  
+        updatedControls[title] = updatedFormElement;
+  
+        this.setState({
+          formControls: updatedControls,
+         
+        });
+>>>>>>> a4c6bada7ef0724b0f65789da323ea4c9bd5448b
     }
   
-    writeNote = () => {
-        this.setState({writingNote: true})
-    };
 
     render() {
         return (
             <NoteContext.Provider value={{
                ...this.state,
+<<<<<<< HEAD
                handleTitle : this.handleTitle,
                handleContent:this.handleContent,
                handleTags: this.handleTags,
                handleSubmit:this.handleSubmit,
                writeNote : this.writeNote
+=======
+               formSubmitHandler : this.formSubmitHandler,
+               changeHandler : this.changeHandler
+
+             
+             
+>>>>>>> a4c6bada7ef0724b0f65789da323ea4c9bd5448b
             }}>
                 {this.props.children}
             </NoteContext.Provider>

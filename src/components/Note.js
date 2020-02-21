@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export default class Note extends Component {
     render() {
-        const {id , title , info , date} = this.props.note;
+        const {  title , info , date} = this.props.note;
         return (
               <div className="container-fluid text-center d-none d-lg-block">
             <div className="row my-4">
