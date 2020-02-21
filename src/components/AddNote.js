@@ -29,7 +29,7 @@ export default class AddNote extends Component {
                                         type ="text"
                                         className="form-control text-capitalize"
                                         placeholder="add a note item"
-                                        onChange={value.handleClick}
+                                        onChange={value.handleTitle}
                                         />
                                         </div>
                                         <div className="py-2 px-4">
@@ -38,7 +38,7 @@ export default class AddNote extends Component {
                                             className="form-control text-capitalize"
                                             placeholder="add the content"
                                         
-                                        onChange={value.handleClick}
+                                        onChange={value.handleContent}
                                         />
                                         </div>
                                         <div className="form-group px-4">
@@ -47,7 +47,7 @@ export default class AddNote extends Component {
                                             type="text"
                                             className="form-control text-capitalize"
                                             placeholder="add a tag"
-                                            onChange={value.handleClick}
+                                            onChange={value.handleTags}
                                             />
                                         </div>
                                     </div>  

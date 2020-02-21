@@ -25,19 +25,29 @@ class NoteProvider extends Component {
       // this.setState({ writingNote: false, currentRead: { title: title, info : info, tag : tag} }); 
     }; 
     
-    handleClick = () => {
+    handleTitle = () => {
         // const newTitle = document.getElementById("new-note-title").value;
         // const newContent = document.getElementById("new-note-content").value;
         // const newTag = document.getElementById("new-tag-content").value;
         // const newObject = { title: newTitle, note: newContent, tag : newTag};
         // console.log(newTitle,newContent,newTag,"trial")
-        console.log("hello from context");
+        console.log("hello from title");
         
       
         // this.setState({
         //   storedNotes: [...this.state.storedNotes, newObject]
         // });
     };
+
+    handleContent = ()=>{
+        console.log("hello from content");
+        
+    }
+
+    handleTags = ()=>{
+        console.log("hello from Tags");
+        
+    }
   
     writeNote = () => {
         this.setState({writingNote: true})
@@ -47,7 +57,9 @@ class NoteProvider extends Component {
         return (
             <NoteContext.Provider value={{
                ...this.state,
-               handleClick : this.handleClick,
+               handleTitle : this.handleTitle,
+               handleContent:this.handleContent,
+               handleTags: this.handleTags,
                readnote : this.readNote,
                writeNote : this.writeNote
             }}>
