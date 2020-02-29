@@ -11,7 +11,7 @@ export default class NoteList extends Component {
               <NoteConsumer>
                 {(value) => {
                   return value.notes.map( note => {
-                    return < Note key = {note.id} note = {note} />
+                    return < Note note = {note} key = {note.id}  />
                   })
                 }}
               </NoteConsumer>

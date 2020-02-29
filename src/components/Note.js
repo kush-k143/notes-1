@@ -3,8 +3,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Note extends Component {
+    
     render() {
-        const {  title , info , date} = this.props.note;
+        
         return (
               <div className="container-fluid text-center d-none d-lg-block">
             <div className="row my-4">
@@ -22,14 +23,14 @@ export default class Note extends Component {
                    
                 </div>
                 <div className="col-10 mx-auto col-lg-2">
-                    <p className="text-capitalise">{title}</p>
+                    <p className="text-capitalise">{this.props.note.title}</p>
                    
                 </div>
                 <div className="col-10 mx-auto col-lg-2">
-                    <p className="text-capitalise">{info}</p>
+                    <p className="text-capitalise">{this.props.note.info}</p>
                 </div>
                 <div className="col-10 mx-auto col-lg-2">
-                    <p className="text-capitalise">{date}</p>
+                    <p className="text-capitalise">{this.props.note.date}</p>
                 </div>
                </div>
 

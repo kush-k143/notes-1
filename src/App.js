@@ -16,9 +16,8 @@ class App extends Component {
              <Navbar />
                 <Switch>  
                     <Route exact path = "/" component={SearchBar} />                  
-                    <Route path = "/addnote" component={AddNote} exact={true} />
+                    <Route path = "/addnote" component={AddNote}  />
                     <Route component={Default}/>
-                    
                 </Switch>
          </React.Fragment>
 
